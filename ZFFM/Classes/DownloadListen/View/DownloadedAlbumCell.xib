@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DownloadedAlbumCell" rowHeight="77" id="7X9-Rk-5UB" customClass="DownloadedAlbumCell" customModule="ZFFM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="77"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7X9-Rk-5UB" id="8oB-xH-WqT">
+                <rect key="frame" x="0.0" y="0.0" width="378" height="76.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="find_albumcell_cover_bg" translatesAutoresizingMaskIntoConstraints="NO" id="gQd-oB-Vbs">
+                        <rect key="frame" x="21" y="8" width="60.5" height="60.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="gQd-oB-Vbs" secondAttribute="height" multiplier="1:1" id="eY5-vD-rIZ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="心有千千结" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3b-N4-uEG">
+                        <rect key="frame" x="91.5" y="8" width="281.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by 黄埔系傲娇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ib-Bl-fF7">
+                        <rect key="frame" x="91.5" y="30" width="265.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHI-2U-kho">
+                        <rect key="frame" x="91.5" y="53.5" width="34" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="4 集" image="album_tracks">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l50-jb-cjl">
+                        <rect key="frame" x="140.5" y="53.5" width="43" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="17.5M" image="sound_sizes">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOy-x8-YGm">
+                        <rect key="frame" x="317" y="18.5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="aGH-2W-zCw"/>
+                            <constraint firstAttribute="height" constant="40" id="bjP-Rp-2gV"/>
+                        </constraints>
+                        <state key="normal" image="deleteCell_h"/>
+                        <connections>
+                            <action selector="deleteClick:" destination="7X9-Rk-5UB" eventType="touchUpInside" id="HxB-PT-Qez"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8ib-Bl-fF7" firstAttribute="leading" secondItem="K3b-N4-uEG" secondAttribute="leading" id="3A4-Wc-PrH"/>
+                    <constraint firstAttribute="trailing" secondItem="K3b-N4-uEG" secondAttribute="trailing" constant="5" id="6vM-h4-lrB"/>
+                    <constraint firstItem="8ib-Bl-fF7" firstAttribute="top" secondItem="K3b-N4-uEG" secondAttribute="bottom" constant="5" id="ABh-zm-uQ3"/>
+                    <constraint firstItem="K3b-N4-uEG" firstAttribute="top" secondItem="gQd-oB-Vbs" secondAttribute="top" id="FOy-cv-3hc"/>
+                    <constraint firstItem="l50-jb-cjl" firstAttribute="centerY" secondItem="zHI-2U-kho" secondAttribute="centerY" id="Fcj-Lh-3G0"/>
+                    <constraint firstItem="zHI-2U-kho" firstAttribute="bottom" secondItem="gQd-oB-Vbs" secondAttribute="bottom" id="KQA-Rm-bqK"/>
+                    <constraint firstItem="gQd-oB-Vbs" firstAttribute="centerY" secondItem="8oB-xH-WqT" secondAttribute="centerY" id="NBY-t0-mBg"/>
+                    <constraint firstItem="aOy-x8-YGm" firstAttribute="centerY" secondItem="8oB-xH-WqT" secondAttribute="centerY" id="RXZ-s5-ocT"/>
+                    <constraint firstAttribute="bottom" secondItem="gQd-oB-Vbs" secondAttribute="bottom" constant="8" id="aGy-qf-87r"/>
+                    <constraint firstItem="gQd-oB-Vbs" firstAttribute="leading" secondItem="8oB-xH-WqT" secondAttribute="leadingMargin" constant="5" id="eoB-5I-bdu"/>
+                    <constraint firstItem="K3b-N4-uEG" firstAttribute="leading" secondItem="gQd-oB-Vbs" secondAttribute="trailing" constant="10" id="gK2-da-1fU"/>
+                    <constraint firstItem="zHI-2U-kho" firstAttribute="leading" secondItem="8ib-Bl-fF7" secondAttribute="leading" id="l1E-n4-Edy"/>
+                    <constraint firstItem="gQd-oB-Vbs" firstAttribute="top" secondItem="8oB-xH-WqT" secondAttribute="top" constant="8" id="lMB-cq-JCL"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="aOy-x8-YGm" secondAttribute="trailing" constant="5" id="qVB-r4-Nvp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8ib-Bl-fF7" secondAttribute="trailing" constant="5" id="s5Y-2m-PHT"/>
+                    <constraint firstItem="l50-jb-cjl" firstAttribute="leading" secondItem="zHI-2U-kho" secondAttribute="trailing" constant="15" id="tvK-2R-Ruc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="albumAnthorLabel" destination="8ib-Bl-fF7" id="H2k-cd-b21"/>
+                <outlet property="albumImageView" destination="gQd-oB-Vbs" id="HVJ-oI-KaK"/>
+                <outlet property="albumPartsBtn" destination="zHI-2U-kho" id="6Sm-cI-HcK"/>
+                <outlet property="albumPartsSizeBtn" destination="l50-jb-cjl" id="vZk-Uj-YmR"/>
+                <outlet property="albumTitleLabel" destination="K3b-N4-uEG" id="FeI-se-Xle"/>
+            </connections>
+            <point key="canvasLocation" x="-40" y="121.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="album_tracks" width="10" height="10"/>
+        <image name="deleteCell_h" width="22" height="22"/>
+        <image name="find_albumcell_cover_bg" width="90" height="90"/>
+        <image name="sound_sizes" width="10" height="10"/>
+    </resources>
+</document>

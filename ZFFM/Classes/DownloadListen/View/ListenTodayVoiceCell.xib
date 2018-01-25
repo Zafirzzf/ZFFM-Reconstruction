@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListenTodayVoiceCell" rowHeight="78" id="KGk-i7-Jjw" customClass="ListenTodayVoiceCell" customModule="ZFFM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="344" height="78"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="344" height="77.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB9-X6-H8D">
+                        <rect key="frame" x="10" y="28" width="30" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="41z-qt-zGA"/>
+                            <constraint firstAttribute="width" constant="30" id="Xw2-nd-Ini"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.90980392160000001" green="0.28627450980000002" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7u-3D-QUZ">
+                        <rect key="frame" x="45" y="18" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="FFn-4A-bGG"/>
+                            <constraint firstAttribute="height" constant="40" id="SYx-fp-7f5"/>
+                            <constraint firstAttribute="width" constant="40" id="Ywd-zQ-Kb7"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="zko-Cq-LcE"/>
+                        </constraints>
+                        <state key="normal" image="cell_sound_play_n"/>
+                        <state key="selected" image="XMGFMDownLoadListen.bundle/cell_sound_pause_n"/>
+                        <connections>
+                            <action selector="playOrPauseClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SIf-Dj-ApR"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXK-uQ-H4t">
+                        <rect key="frame" x="95" y="18" width="178" height="17"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by 黄埔系傲娇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsh-wQ-qpJ">
+                        <rect key="frame" x="95" y="45" width="72.5" height="13.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfP-K9-9Jr">
+                        <rect key="frame" x="288" y="23" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="0MM-nm-ub3"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="8UD-km-NAs"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="SvF-f8-WAw"/>
+                            <constraint firstAttribute="height" constant="30" id="XkA-hw-66B"/>
+                        </constraints>
+                        <state key="normal" image="cell_download"/>
+                        <connections>
+                            <action selector="downloadClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jcl-U9-b3x"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="DXK-uQ-H4t" firstAttribute="top" secondItem="S7u-3D-QUZ" secondAttribute="top" id="KSo-tJ-3uh"/>
+                    <constraint firstItem="FB9-X6-H8D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="O33-bn-Vfd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cfP-K9-9Jr" secondAttribute="trailing" constant="10" id="QaM-fF-Z6B"/>
+                    <constraint firstItem="DXK-uQ-H4t" firstAttribute="leading" secondItem="S7u-3D-QUZ" secondAttribute="trailing" constant="10" id="QyA-gW-pQw"/>
+                    <constraint firstItem="cfP-K9-9Jr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aWJ-RQ-Mif"/>
+                    <constraint firstItem="Qsh-wQ-qpJ" firstAttribute="top" secondItem="DXK-uQ-H4t" secondAttribute="bottom" constant="10" id="bbw-MT-1qR"/>
+                    <constraint firstItem="S7u-3D-QUZ" firstAttribute="leading" secondItem="FB9-X6-H8D" secondAttribute="trailing" constant="5" id="dyn-4C-Ne0"/>
+                    <constraint firstItem="cfP-K9-9Jr" firstAttribute="leading" secondItem="DXK-uQ-H4t" secondAttribute="trailing" constant="15" id="pAP-VX-Bze"/>
+                    <constraint firstItem="FB9-X6-H8D" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qly-67-xSg"/>
+                    <constraint firstItem="Qsh-wQ-qpJ" firstAttribute="leading" secondItem="DXK-uQ-H4t" secondAttribute="leading" id="t83-y0-hg4"/>
+                    <constraint firstItem="S7u-3D-QUZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tv8-Jz-hXw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="downloadBtn" destination="cfP-K9-9Jr" id="pOe-0h-8d8"/>
+                <outlet property="playOrPauseBtn" destination="S7u-3D-QUZ" id="t7G-5y-ul4"/>
+                <outlet property="sortNumLabel" destination="FB9-X6-H8D" id="FhS-w6-S3J"/>
+                <outlet property="voiceAuthorLabel" destination="Qsh-wQ-qpJ" id="ktJ-Vp-Xeu"/>
+                <outlet property="voiceTitleLabel" destination="DXK-uQ-H4t" id="eFi-fg-kDR"/>
+            </connections>
+            <point key="canvasLocation" x="-83" y="-7"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="XMGFMDownLoadListen.bundle/cell_sound_pause_n" width="16" height="16"/>
+        <image name="cell_download" width="24" height="24"/>
+        <image name="cell_sound_play_n" width="38" height="38"/>
+    </resources>
+</document>

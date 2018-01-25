@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeItemCell" customModule="ZFFM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="490"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="395" height="490"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eNQ-1t-aIB">
+                        <rect key="frame" x="0.0" y="0.0" width="395" height="395"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="eNQ-1t-aIB" secondAttribute="height" multiplier="1:1" id="3zT-PV-CZS"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="albumtag_pay" translatesAutoresizingMaskIntoConstraints="NO" id="Zkb-OG-5Yq">
+                        <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="DMD-LF-qm8"/>
+                            <constraint firstAttribute="width" constant="34" id="INa-bF-sJg"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="啦啦啦啦啦啦啦啦啊" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vph-dt-Ndf">
+                        <rect key="frame" x="0.0" y="405" width="395" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="find_specialicon" translatesAutoresizingMaskIntoConstraints="NO" id="QYc-Yb-oPP">
+                        <rect key="frame" x="0.0" y="431" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="hdH-Al-2mc"/>
+                            <constraint firstAttribute="width" constant="14" id="rTs-JR-72Y"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfv-yl-bHX">
+                        <rect key="frame" x="29" y="431" width="356" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="eNQ-1t-aIB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0Nq-Tl-qVi"/>
+                <constraint firstItem="eNQ-1t-aIB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4nq-lp-n2z"/>
+                <constraint firstItem="Zkb-OG-5Yq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5tf-Hy-1LH"/>
+                <constraint firstItem="QYc-Yb-oPP" firstAttribute="top" secondItem="vph-dt-Ndf" secondAttribute="bottom" constant="10" id="GT2-1J-mn4"/>
+                <constraint firstAttribute="trailing" secondItem="gfv-yl-bHX" secondAttribute="trailing" constant="10" id="JQT-bl-a5E"/>
+                <constraint firstAttribute="trailing" secondItem="vph-dt-Ndf" secondAttribute="trailing" id="R8i-YG-d2W"/>
+                <constraint firstItem="gfv-yl-bHX" firstAttribute="leading" secondItem="QYc-Yb-oPP" secondAttribute="trailing" constant="15" id="Ti9-QT-iLj"/>
+                <constraint firstItem="Zkb-OG-5Yq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Z0U-Ag-htd"/>
+                <constraint firstItem="gfv-yl-bHX" firstAttribute="top" secondItem="vph-dt-Ndf" secondAttribute="bottom" constant="10" id="c1V-Bw-OXb"/>
+                <constraint firstItem="vph-dt-Ndf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="n9H-xq-gXH"/>
+                <constraint firstAttribute="trailing" secondItem="eNQ-1t-aIB" secondAttribute="trailing" id="uBF-FD-6Cw"/>
+                <constraint firstItem="vph-dt-Ndf" firstAttribute="top" secondItem="eNQ-1t-aIB" secondAttribute="bottom" constant="10" id="vrf-lq-ery"/>
+                <constraint firstItem="QYc-Yb-oPP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zX8-QE-8Kv"/>
+            </constraints>
+            <size key="customSize" width="395" height="490"/>
+            <connections>
+                <outlet property="albumCoverImageV" destination="eNQ-1t-aIB" id="Fus-Ej-5vj"/>
+                <outlet property="detailLabel" destination="gfv-yl-bHX" id="76Z-Sh-gW4"/>
+                <outlet property="payIcon" destination="Zkb-OG-5Yq" id="dR5-aF-ium"/>
+                <outlet property="titleLabel" destination="vph-dt-Ndf" id="qn8-sf-qKh"/>
+            </connections>
+            <point key="canvasLocation" x="-1007.5" y="-33"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="albumtag_pay" width="34" height="34"/>
+        <image name="find_specialicon" width="10" height="10"/>
+    </resources>
+</document>

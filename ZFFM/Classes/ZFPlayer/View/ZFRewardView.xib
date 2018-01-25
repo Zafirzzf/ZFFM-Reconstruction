@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZFRewardView" customModule="ZFFM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="242"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-fk-0iD">
+                    <rect key="frame" x="5" y="5" width="406" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="ZGN-SN-r1v"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="声音简介:XXXXXXXXXX">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="introduceClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="T6R-Mj-DjC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J34-KG-Jj6" userLabel="rewardBtn">
+                    <rect key="frame" x="183.5" y="50" width="49" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="EDe-qK-Li8"/>
+                    </constraints>
+                    <state key="normal" image="rewardButtonImage"/>
+                    <connections>
+                        <action selector="rewardClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vjs-u2-ueU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvL-5n-5OM">
+                    <rect key="frame" x="190.5" y="115" width="35" height="28"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="XXXX">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyp-Bw-zOB" userLabel="containerView">
+                    <rect key="frame" x="0.0" y="143" width="416" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Xow-wJ-fNf"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kyp-Bw-zOB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6un-ZS-zTS"/>
+                <constraint firstItem="J34-KG-Jj6" firstAttribute="top" secondItem="8Bg-fk-0iD" secondAttribute="bottom" constant="10" id="EZl-pE-QDI"/>
+                <constraint firstItem="qvL-5n-5OM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="J9J-bF-sp4"/>
+                <constraint firstItem="kyp-Bw-zOB" firstAttribute="top" secondItem="qvL-5n-5OM" secondAttribute="bottom" id="MCd-d8-F02"/>
+                <constraint firstItem="8Bg-fk-0iD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="XP0-Sx-CF2"/>
+                <constraint firstItem="J34-KG-Jj6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aF4-B1-XuC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8Bg-fk-0iD" secondAttribute="trailing" constant="5" id="bad-ff-FTh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kyp-Bw-zOB" secondAttribute="trailing" id="heH-gT-Xep"/>
+                <constraint firstItem="qvL-5n-5OM" firstAttribute="top" secondItem="J34-KG-Jj6" secondAttribute="bottom" constant="5" id="mTu-fu-Koa"/>
+                <constraint firstItem="8Bg-fk-0iD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="yzL-5K-p3H"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btnContainerView" destination="kyp-Bw-zOB" id="ubM-5e-zCT"/>
+                <outlet property="descriptionBtn" destination="8Bg-fk-0iD" id="ijK-qO-JpO"/>
+                <outlet property="rewwardCountBtn" destination="qvL-5n-5OM" id="f9q-MA-U4J"/>
+            </connections>
+            <point key="canvasLocation" x="-1396" y="131"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="rewardButtonImage" width="49" height="50"/>
+    </resources>
+</document>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DownloadVoiceCell" rowHeight="90" id="eMy-yr-JpH" customClass="DownloadVoiceCell" customModule="ZFFM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eMy-yr-JpH" id="s90-pS-YQ5">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONt-vJ-aRD">
+                        <rect key="frame" x="21" y="16" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Ujf-jO-Kqc"/>
+                            <constraint firstAttribute="height" constant="40" id="nbR-fw-ffG"/>
+                        </constraints>
+                        <state key="normal" image="cell_sound_play_n"/>
+                        <state key="selected" image="XMGFMDownLoadListen.bundle/cell_sound_pause_n"/>
+                        <connections>
+                            <action selector="playOrPause:" destination="eMy-yr-JpH" eventType="touchUpInside" id="P0v-Nn-jhp"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzi-Cj-KGe">
+                        <rect key="frame" x="74" y="16" width="170" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by 黄埔系傲娇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjS-yp-R0n">
+                        <rect key="frame" x="74" y="36" width="78.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.7M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ie-Gm-25v">
+                        <rect key="frame" x="262" y="16" width="32" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELq-Wy-bxt">
+                        <rect key="frame" x="259" y="38" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="AZ3-sl-Z3r"/>
+                            <constraint firstAttribute="width" constant="35" id="IDF-fA-zA2"/>
+                        </constraints>
+                        <state key="normal" image="deleteCell_h"/>
+                        <connections>
+                            <action selector="deleteClick:" destination="eMy-yr-JpH" eventType="touchUpInside" id="zyL-Vl-9tt"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-7A-KYE">
+                        <rect key="frame" x="74" y="55" width="40" height="14"/>
+                        <rect key="contentStretch" x="0.10000000000000001" y="0.0" width="1" height="1"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="87.7万" image="find_albumcell_play">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CC-io-Jbn">
+                        <rect key="frame" x="122" y="55" width="42" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="87.7万" image="sound_comments">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCU-Kl-aCc">
+                        <rect key="frame" x="172" y="55" width="22" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="22" image="sound_duration">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMb-Ei-bKR" userLabel="progressBackView">
+                        <rect key="frame" x="0.0" y="69.5" width="320" height="20"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-os-jcm">
+                                <rect key="frame" x="0.0" y="0.0" width="70" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="zpm-yf-Ez4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title=" 开始下载" image="sound_downloading">
+                                    <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected" title=" 暂停下载" image="paused"/>
+                                <connections>
+                                    <action selector="downloadOrPause:" destination="eMy-yr-JpH" eventType="touchUpInside" id="zi9-T7-cEU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8888.kb/8.6M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia4-er-Eip">
+                                <rect key="frame" x="240" y="0.0" width="80" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="iVx-CD-YgU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" progressImage="sound_progress_h" trackImage="sound_progress_n" translatesAutoresizingMaskIntoConstraints="NO" id="OaN-qi-9sI">
+                                <rect key="frame" x="80" y="9" width="150" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="8Jh-V9-7iH"/>
+                            <constraint firstItem="ia4-er-Eip" firstAttribute="leading" secondItem="OaN-qi-9sI" secondAttribute="trailing" constant="10" id="9XE-UX-zvH"/>
+                            <constraint firstItem="PSg-os-jcm" firstAttribute="leading" secondItem="UMb-Ei-bKR" secondAttribute="leading" id="O5F-qg-w1L"/>
+                            <constraint firstItem="PSg-os-jcm" firstAttribute="top" secondItem="UMb-Ei-bKR" secondAttribute="top" id="anS-w8-ySj"/>
+                            <constraint firstAttribute="bottom" secondItem="PSg-os-jcm" secondAttribute="bottom" id="dOr-TV-V9b"/>
+                            <constraint firstItem="ia4-er-Eip" firstAttribute="top" secondItem="UMb-Ei-bKR" secondAttribute="top" id="f7A-Fo-uhp"/>
+                            <constraint firstAttribute="trailing" secondItem="ia4-er-Eip" secondAttribute="trailing" id="hbh-CM-EYe"/>
+                            <constraint firstItem="OaN-qi-9sI" firstAttribute="centerY" secondItem="UMb-Ei-bKR" secondAttribute="centerY" id="jl2-VL-xO7"/>
+                            <constraint firstAttribute="bottom" secondItem="ia4-er-Eip" secondAttribute="bottom" id="oE9-Hc-TzV"/>
+                            <constraint firstItem="OaN-qi-9sI" firstAttribute="leading" secondItem="PSg-os-jcm" secondAttribute="trailing" constant="10" id="xPF-ke-QhS"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ELq-Wy-bxt" firstAttribute="top" secondItem="8Ie-Gm-25v" secondAttribute="bottom" constant="7.5" id="1T2-hQ-Jic"/>
+                    <constraint firstAttribute="trailing" secondItem="UMb-Ei-bKR" secondAttribute="trailing" id="1jx-3o-xGV"/>
+                    <constraint firstItem="8Ie-Gm-25v" firstAttribute="trailing" secondItem="s90-pS-YQ5" secondAttribute="trailingMargin" constant="20" id="201-jM-tIt"/>
+                    <constraint firstItem="SCU-Kl-aCc" firstAttribute="top" secondItem="1CC-io-Jbn" secondAttribute="top" id="6ul-Fr-PJ6"/>
+                    <constraint firstAttribute="bottom" secondItem="UMb-Ei-bKR" secondAttribute="bottom" id="6xa-Jc-vji"/>
+                    <constraint firstItem="8Ie-Gm-25v" firstAttribute="centerY" secondItem="mzi-Cj-KGe" secondAttribute="centerY" id="9UI-kL-DcW"/>
+                    <constraint firstItem="1CC-io-Jbn" firstAttribute="top" secondItem="ry3-7A-KYE" secondAttribute="top" id="EHG-1q-cf7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="mzi-Cj-KGe" secondAttribute="trailing" constant="60" id="LAF-jt-Q2k"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8Ie-Gm-25v" secondAttribute="trailing" constant="10" id="NZY-t2-YiG"/>
+                    <constraint firstItem="xjS-yp-R0n" firstAttribute="leading" secondItem="mzi-Cj-KGe" secondAttribute="leading" id="PUr-Qh-rVb"/>
+                    <constraint firstItem="UMb-Ei-bKR" firstAttribute="leading" secondItem="s90-pS-YQ5" secondAttribute="leading" id="TAP-3v-bky"/>
+                    <constraint firstItem="ONt-vJ-aRD" firstAttribute="top" secondItem="s90-pS-YQ5" secondAttribute="topMargin" constant="5" id="TsM-Zc-KjI"/>
+                    <constraint firstItem="ry3-7A-KYE" firstAttribute="leading" secondItem="xjS-yp-R0n" secondAttribute="leading" id="c9q-Qi-lFY"/>
+                    <constraint firstItem="ONt-vJ-aRD" firstAttribute="leading" secondItem="s90-pS-YQ5" secondAttribute="leadingMargin" constant="5" id="f0k-Fw-J1I"/>
+                    <constraint firstItem="mzi-Cj-KGe" firstAttribute="leading" secondItem="ONt-vJ-aRD" secondAttribute="trailing" constant="13" id="jwU-hQ-QVR"/>
+                    <constraint firstItem="1CC-io-Jbn" firstAttribute="leading" secondItem="ry3-7A-KYE" secondAttribute="trailing" constant="8" id="knw-W9-zEf"/>
+                    <constraint firstItem="mzi-Cj-KGe" firstAttribute="top" secondItem="ONt-vJ-aRD" secondAttribute="top" id="oX9-ah-x3s"/>
+                    <constraint firstItem="xjS-yp-R0n" firstAttribute="top" secondItem="mzi-Cj-KGe" secondAttribute="bottom" constant="3" id="qkf-4e-Y7t"/>
+                    <constraint firstItem="SCU-Kl-aCc" firstAttribute="leading" secondItem="1CC-io-Jbn" secondAttribute="trailing" constant="8" id="uhB-9y-bB4"/>
+                    <constraint firstItem="8Ie-Gm-25v" firstAttribute="top" secondItem="mzi-Cj-KGe" secondAttribute="top" id="viy-gk-vgc"/>
+                    <constraint firstItem="ELq-Wy-bxt" firstAttribute="trailing" secondItem="8Ie-Gm-25v" secondAttribute="trailing" id="xkR-A9-8Tf"/>
+                    <constraint firstItem="ry3-7A-KYE" firstAttribute="top" secondItem="xjS-yp-R0n" secondAttribute="bottom" constant="4.5" id="xyl-Cb-cAu"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="201-jM-tIt"/>
+                        <exclude reference="9UI-kL-DcW"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="commentBtn" destination="1CC-io-Jbn" id="eRF-35-7yy"/>
+                <outlet property="downloadOrPauseBtn" destination="PSg-os-jcm" id="SGx-lW-Bp4"/>
+                <outlet property="downloadProgressLabel" destination="ia4-er-Eip" id="SQ7-MO-k3f"/>
+                <outlet property="downloadProgressV" destination="OaN-qi-9sI" id="yjP-0Z-khA"/>
+                <outlet property="durationBtn" destination="SCU-Kl-aCc" id="nyd-RD-Hqj"/>
+                <outlet property="filesizeLabel" destination="8Ie-Gm-25v" id="prF-ci-FfM"/>
+                <outlet property="playCountBtn" destination="ry3-7A-KYE" id="Okd-Nh-5qR"/>
+                <outlet property="playOrPauseBtn" destination="ONt-vJ-aRD" id="DSO-rW-xh0"/>
+                <outlet property="progressBackView" destination="UMb-Ei-bKR" id="Ofs-vM-Mic"/>
+                <outlet property="voiceAuthorLabel" destination="xjS-yp-R0n" id="zXe-Hh-2Nz"/>
+                <outlet property="voiceTitleLabel" destination="mzi-Cj-KGe" id="nV6-Wg-hBs"/>
+            </connections>
+            <point key="canvasLocation" x="-664" y="-135"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="XMGFMDownLoadListen.bundle/cell_sound_pause_n" width="16" height="16"/>
+        <image name="cell_sound_play_n" width="38" height="38"/>
+        <image name="deleteCell_h" width="22" height="22"/>
+        <image name="find_albumcell_play" width="7" height="8"/>
+        <image name="paused" width="11" height="11"/>
+        <image name="sound_comments" width="9" height="8"/>
+        <image name="sound_downloading" width="12" height="12"/>
+        <image name="sound_duration" width="8" height="8"/>
+        <image name="sound_progress_h" width="185" height="5"/>
+        <image name="sound_progress_n" width="185" height="5"/>
+    </resources>
+</document>

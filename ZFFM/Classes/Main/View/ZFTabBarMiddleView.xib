@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZFTabBarMiddleView" customModule="ZFFM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_np_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="RHa-aO-Q1i">
+                    <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_np_normal" translatesAutoresizingMaskIntoConstraints="NO" id="Msj-ib-T6O">
+                    <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tabbar_np_playshadow" translatesAutoresizingMaskIntoConstraints="NO" id="q5r-xG-EG9">
+                    <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="zxy_icon" translatesAutoresizingMaskIntoConstraints="NO" id="LAV-GZ-I8O">
+                    <rect key="frame" x="11" y="11" width="43" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS6-0E-wgG">
+                    <rect key="frame" x="10" y="10" width="45" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="tabbar_np_play"/>
+                    <connections>
+                        <action selector="playBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Bje-cS-a3a"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RHa-aO-Q1i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3yy-Mo-Y8a"/>
+                <constraint firstAttribute="bottom" secondItem="RHa-aO-Q1i" secondAttribute="bottom" id="5Me-nB-cer"/>
+                <constraint firstAttribute="trailing" secondItem="Msj-ib-T6O" secondAttribute="trailing" id="EgG-U3-wOY"/>
+                <constraint firstItem="Msj-ib-T6O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kgc-MW-vYE"/>
+                <constraint firstAttribute="trailing" secondItem="RHa-aO-Q1i" secondAttribute="trailing" id="T3g-6m-3jA"/>
+                <constraint firstAttribute="bottom" secondItem="Msj-ib-T6O" secondAttribute="bottom" id="pTP-mP-Me6"/>
+                <constraint firstItem="Msj-ib-T6O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="syX-Z0-6Yh"/>
+                <constraint firstItem="RHa-aO-Q1i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uUe-bP-2kV"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconImageView" destination="LAV-GZ-I8O" id="hDY-uS-CpZ"/>
+                <outlet property="playBtn" destination="fS6-0E-wgG" id="AjH-4a-wa2"/>
+            </connections>
+            <point key="canvasLocation" x="-282" y="34"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tabbar_np_normal" width="65" height="65"/>
+        <image name="tabbar_np_play" width="50" height="50"/>
+        <image name="tabbar_np_playshadow" width="50" height="50"/>
+        <image name="tabbar_np_shadow" width="75" height="65"/>
+        <image name="zxy_icon" width="48" height="48"/>
+    </resources>
+</document>
