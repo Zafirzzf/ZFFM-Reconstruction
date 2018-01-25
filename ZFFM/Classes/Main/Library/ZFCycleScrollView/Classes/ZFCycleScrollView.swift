@@ -9,21 +9,21 @@
 import UIKit
 fileprivate let cellID = "cellID"
 @objc public protocol ZFCycleScrollViewDelegate {
-   @objc optional func cycleScrollView(_ cycleScrollView: ZFCycleScrollView, didSelectItemAtIndex index: Int)
+    @objc optional func cycleScrollView(_ cycleScrollView: ZFCycleScrollView, didSelectItemAtIndex index: Int)
     @objc optional func cycleScrollView(_ cycleScrollView: ZFCycleScrollView, didScrolledToItemIndex index: Int)
 }
 
 public class ZFCycleScrollView: UIView{
     
     /* 懒加载控件*/
-    @objc lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+    lazy var collectionViewLayout: UICollectionViewFlowLayout = {
         let collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.itemSize = self.bounds.size
         collectionLayout.scrollDirection = .horizontal
         collectionLayout.minimumLineSpacing = 0
         return collectionLayout
     }()
-    @objc lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
   
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: self.collectionViewLayout)
         collectionView.delegate = self
@@ -35,26 +35,26 @@ public class ZFCycleScrollView: UIView{
         collectionView.backgroundColor = UIColor.clear
         return collectionView
     }()
-    @objc lazy var pageControl: UIPageControl = {
+    lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.pageIndicatorTintColor = UIColor.gray
         pageControl.currentPageIndicatorTintColor = UIColor.white
         return pageControl
     }()
     
-    @objc var timer: Timer? = Timer()
+     var timer: Timer? = Timer()
     
     /* 暴露的属性 */
-    @objc open var delegate: ZFCycleScrollViewDelegate?
-    @objc open var placeHolderImage: UIImage? // 占位图
-    @objc open var pageDotColor: UIColor = UIColor.gray //
-    @objc open var currentPageDotColor: UIColor = UIColor.white {
+     open var delegate: ZFCycleScrollViewDelegate?
+     open var placeHolderImage: UIImage? // 占位图
+     open var pageDotColor: UIColor = UIColor.gray //
+     open var currentPageDotColor: UIColor = UIColor.white {
         didSet {
             pageControl.currentPageIndicatorTintColor = currentPageDotColor
         }
     }
-    @objc open var pageAnimateInterval = 3.0
-    @objc open var picUrls:[String] = [] {
+     open var pageAnimateInterval = 3.0
+     open var picUrls:[String] = [] {
         didSet {
             setPicUrls(pics: picUrls)
         }
@@ -62,7 +62,7 @@ public class ZFCycleScrollView: UIView{
     
     
     /* 构造方法 */
-    @objc public init(frame: CGRect, delegate: ZFCycleScrollViewDelegate? = nil, placeHolderImage: UIImage? = nil ) {
+    public init(frame: CGRect, delegate: ZFCycleScrollViewDelegate? = nil, placeHolderImage: UIImage? = nil ) {
         super.init(frame: frame)
         self.delegate = delegate
         self.placeHolderImage = placeHolderImage
@@ -87,7 +87,7 @@ public class ZFCycleScrollView: UIView{
 }
 //MARK:- UI
 extension ZFCycleScrollView {
-    @objc func setupUI() {
+     func setupUI() {
         if let placeholderImages = placeHolderImage {
             backgroundColor = UIColor(patternImage: placeholderImages)
         }
@@ -97,7 +97,7 @@ extension ZFCycleScrollView {
 }
 //MARK:- 添加计时器
 extension ZFCycleScrollView {
-    @objc func addTimer() {
+    func addTimer() {
         timer = Timer.scheduledTimer(timeInterval: pageAnimateInterval, target: self, selector: #selector(scrollBanner), userInfo: nil, repeats: true)
         RunLoop.current.add(timer!, forMode: .commonModes)
         
@@ -110,7 +110,7 @@ extension ZFCycleScrollView {
 }
 //MARK:- 数据赋值
 extension ZFCycleScrollView {
-    @objc func setPicUrls(pics: [String]) {
+     func setPicUrls(pics: [String]) {
         collectionView.reloadData()
         let indexPath = IndexPath(item: picUrls.count * 100, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
@@ -122,7 +122,7 @@ extension ZFCycleScrollView {
     }
     
     //显示pageControl
-    @objc func setupPageControl() {
+     func setupPageControl() {
         pageControl.frame = CGRect(x: 0, y: bounds.height - 20, width: bounds.width, height: 15)
         pageControl.numberOfPages = picUrls.count
         pageControl.currentPage = 0
@@ -160,7 +160,7 @@ extension ZFCycleScrollView: UICollectionViewDataSource,UICollectionViewDelegate
        addTimer()
     }
     
-    @objc func setscrollOffset(_ scrollView: UIScrollView) {
+     func setscrollOffset(_ scrollView: UIScrollView) {
         let index = scrollView.contentOffset.x / bounds.width
         pageControl.currentPage = Int(index.truncatingRemainder(dividingBy: CGFloat(picUrls.count)))
         delegate?.cycleScrollView?(self, didScrolledToItemIndex: Int(index) % picUrls.count )

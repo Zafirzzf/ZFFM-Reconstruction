@@ -12,16 +12,16 @@ let KMenuViewH: CGFloat = 3 * KCommonMargin +  KMenuBtnWidth
 class HomeRecommendVC: BaseViewController {
     /* UI控件 */
     
-    @objc lazy var cycleScrollView: ZFCycleScrollView = {
+    lazy var cycleScrollView: ZFCycleScrollView = {
         let frame = CGRect(x: 0, y: 0, width: KSCREEN_W, height: KAdvertiseViewH)
         let cycScrollView = ZFCycleScrollView(frame: frame, delegate: self)
         cycScrollView.currentPageDotColor = KSubjectColor
         return cycScrollView
     }()
-    @objc lazy var menuView: HomeMenuView = HomeMenuView(frame: CGRect(x: 0, y: KAdvertiseViewH, width: KSCREEN_W, height: KMenuViewH))
+    lazy var menuView: HomeMenuView = HomeMenuView(frame: CGRect(x: 0, y: KAdvertiseViewH, width: KSCREEN_W, height: KMenuViewH))
     /* 数据源 */
-    @objc var advertiseVM = HomeAdvertiseVM()
-    @objc var groupListVM = HomeGroupListVM()
+    var advertiseVM = HomeAdvertiseVM()
+    var groupListVM = HomeGroupListVM()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

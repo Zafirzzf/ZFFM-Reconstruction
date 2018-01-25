@@ -9,9 +9,9 @@
 import UIKit
 
 class ZFCycleCell: UICollectionViewCell {
-    @objc let imageView = UIImageView()
-    @objc var placeHolderImage: UIImage?
-    @objc var picUrl: String? {
+     let imageView = UIImageView()
+     var placeHolderImage: UIImage?
+     var picUrl: String? {
         didSet {
             downloadImage(urlStr: picUrl!)
         }
@@ -27,20 +27,19 @@ class ZFCycleCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func downloadImage(urlStr: String) {
+     func downloadImage(urlStr: String) {
         let cacheImage = ZFCyclePersistency.getCacheImage(urlStr)
         if let cacheImage = cacheImage {
             imageView.image = cacheImage.compressImage(size: bounds.size)
         }else {
             imageView.image = placeHolderImage
             DispatchQueue.global().async {
-                guard let url = URL(string: urlStr) else { return }
-                guard let imageData = try? Data(contentsOf: url) else { return }
-                let image = UIImage(data: imageData)
-                DispatchQueue.main.async(execute: {
-                    self.imageView.image = image?.compressImage(size: self.bounds.size)
-                    ZFCyclePersistency.saveImage(image, urlStr)
-                })
+                if let image = (URL(string: urlStr).flatMap{ try?Data(contentsOf: $0)}.flatMap{ UIImage(data: $0)}) {
+                    DispatchQueue.main.async(execute: {
+                        self.imageView.image = image.compressImage(size: self.bounds.size)
+                        ZFCyclePersistency.saveImage(image, urlStr)
+                    })
+                }
             }
         }
      
