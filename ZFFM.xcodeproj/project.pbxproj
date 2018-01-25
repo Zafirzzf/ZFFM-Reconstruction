@@ -95,6 +95,7 @@
 		18215C561FDF7BBB004E77D0 /* SelectMusicRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18215C4E1FDF7BBB004E77D0 /* SelectMusicRangeView.swift */; };
 		18215C5C1FDF7BE7004E77D0 /* RecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18215C5A1FDF7BE7004E77D0 /* RecorderController.swift */; };
 		18215C5F1FDF80BB004E77D0 /* RecorderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18215C5E1FDF80BB004E77D0 /* RecorderController.xib */; };
+		1823441A2019BE9700097432 /* CGFloat+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182344192019BE9700097432 /* CGFloat+extension.swift */; };
 		182E9D6F1F7B81CC00672F22 /* DownloadDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E9D6E1F7B81CC00672F22 /* DownloadDataTool.swift */; };
 		182E9D711F7B820A00672F22 /* DownloadAlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182276D11F7B7AE000243EB5 /* DownloadAlbumVC.swift */; };
 		182E9D721F7B820A00672F22 /* DownloadBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182276D21F7B7AE000243EB5 /* DownloadBaseVC.swift */; };
@@ -319,6 +320,7 @@
 		182277291F7B7B5700243EB5 /* UIButton+Fast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Fast.swift"; sourceTree = "<group>"; };
 		1822772A1F7B7B5700243EB5 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		1822772B1F7B7B5700243EB5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		182344192019BE9700097432 /* CGFloat+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+extension.swift"; sourceTree = "<group>"; };
 		182E9D6E1F7B81CC00672F22 /* DownloadDataTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadDataTool.swift; sourceTree = "<group>"; };
 		18333A5D1FE21D5700C3DFDB /* SettingAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAlarmController.swift; sourceTree = "<group>"; };
 		18333A771FE240E000C3DFDB /* MineProgramHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineProgramHeader.swift; sourceTree = "<group>"; };
@@ -853,6 +855,7 @@
 			isa = PBXGroup;
 			children = (
 				182277281F7B7B5700243EB5 /* UIButton+Extension.swift */,
+				182344192019BE9700097432 /* CGFloat+extension.swift */,
 				182277241F7B7B5700243EB5 /* CALayer+Extension.swift */,
 				182277251F7B7B5700243EB5 /* Const.swift */,
 				182277271F7B7B5700243EB5 /* KingfisherExtension.swift */,
@@ -1327,6 +1330,7 @@
 				182E9D7A1F7B820A00672F22 /* ListenCategoryModel.swift in Sources */,
 				182E9D7B1F7B820A00672F22 /* ListenShareModel.swift in Sources */,
 				181399701FA7066A00E1B916 /* ZFRemotePlayer.swift in Sources */,
+				1823441A2019BE9700097432 /* CGFloat+extension.swift in Sources */,
 				182E9D7C1F7B820A00672F22 /* DownloadlistenRequest.swift in Sources */,
 				182E9D7E1F7B820A00672F22 /* DownloadedAlbumCell.swift in Sources */,
 				182E9D7F1F7B820A00672F22 /* DownloadedAlbumCell.xib in Sources */,

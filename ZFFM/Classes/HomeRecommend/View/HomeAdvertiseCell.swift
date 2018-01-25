@@ -15,20 +15,20 @@ class HomeAdvertiseCell: UITableViewCell,LoadNibCell {
     @IBOutlet weak var rightTitleLabel: UILabel!
     @IBOutlet weak var detailTitleLabel: UILabel!
     
-    @objc lazy var cycScrollView: ZFCycleScrollView = {
+     lazy var cycScrollView: ZFCycleScrollView = {
         let frame = CGRect(x: 0, y: 0, width: KSCREEN_W - 20, height: self.adContainerView.bounds.height)
         let cycscrollView = ZFCycleScrollView(frame: frame, delegate: self, placeHolderImage: nil)
         cycscrollView.currentPageDotColor = KSubjectColor
         return cycscrollView
         
     }()
-    @objc var groupModel = HomeGroupModel() {
+     var groupModel = HomeGroupModel() {
         didSet{
             isLiveModel = groupModel.liveMs.count > 0 ? true : false
             setupModel(groupModel)
         }
     }
-    @objc var isLiveModel: Bool = true // 分Live模块和spread模块
+     var isLiveModel: Bool = true // 分Live模块和spread模块
     override func awakeFromNib() {
         super.awakeFromNib()
         setupAdScrollView()

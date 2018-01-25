@@ -98,6 +98,7 @@ extension ZFCycleScrollView {
 //MARK:- 添加计时器
 extension ZFCycleScrollView {
     func addTimer() {
+
         timer = Timer.scheduledTimer(timeInterval: pageAnimateInterval, target: self, selector: #selector(scrollBanner), userInfo: nil, repeats: true)
         RunLoop.current.add(timer!, forMode: .commonModes)
         
@@ -115,9 +116,11 @@ extension ZFCycleScrollView {
         let indexPath = IndexPath(item: picUrls.count * 100, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
         if pics.count > 1 {
-            setupPageControl()
-            addTimer()
-            collectionView.isScrollEnabled = true
+            if timer == nil {
+                setupPageControl()
+                addTimer()
+                collectionView.isScrollEnabled = true
+            }
         }
     }
     
@@ -161,6 +164,11 @@ extension ZFCycleScrollView: UICollectionViewDataSource,UICollectionViewDelegate
     }
     
      func setscrollOffset(_ scrollView: UIScrollView) {
+        let currentOffset = collectionView.contentOffset
+        if currentOffset.x % bounds.width != 0 {
+            let targetX = (currentOffset.x / bounds.width).rounded() * bounds.width
+            collectionView.setContentOffset(CGPoint(x: targetX, y: currentOffset.y), animated: false)
+        }
         let index = scrollView.contentOffset.x / bounds.width
         pageControl.currentPage = Int(index.truncatingRemainder(dividingBy: CGFloat(picUrls.count)))
         delegate?.cycleScrollView?(self, didScrolledToItemIndex: Int(index) % picUrls.count )
