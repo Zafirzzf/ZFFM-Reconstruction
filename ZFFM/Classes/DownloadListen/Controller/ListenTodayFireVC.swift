@@ -9,8 +9,8 @@ import UIKit
 import ZFPageTitleView
 class ListenTodayFireVC: BaseViewController {
 
-    @objc var downloadManager = ZFDownloadManager.shareInstance
-    @objc var categoryMs = [ListenCategoryModel]()
+    var downloadManager = ZFDownloadManager.shareInstance
+    var categoryMs = [ListenCategoryModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         

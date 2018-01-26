@@ -12,6 +12,7 @@ class HomeRecommendRequest: NetworkTool {
     
     /// 加载首页广告
    class func loadAdvertiers(_ completion:@escaping NetworkCompletion) {
+    
         let urlString = kBaseUrl + "mobile/discovery/v4/recommends"
         let parameters = ["channel": "ios-b1",
                           "device": "iPhone",
@@ -23,6 +24,7 @@ class HomeRecommendRequest: NetworkTool {
     }
     // 加载 "图文菜单"
     class func loadPicMenuList(_ result: @escaping NetworkCompletion) {
+        
         let urlString = kBaseUrl + "mobile/discovery/v2/recommend/hotAndGuess"
         let parameters = ["device": "iPhone",
                           "version": "5.4.21"]
@@ -36,8 +38,10 @@ class HomeRecommendRequest: NetworkTool {
 //            let resultArr = rootDict["discoveryColumns"]?["list"] as! [Any]
         }
     }
+    
     // 加载 "小编推荐"
     class func loadEdiotrRecommend(_ result: @escaping (_ resultModel: HomeGroupModel)->()) {
+        
         let urlString = kBaseUrl + "mobile/discovery/v4/recommends"
         let parameters = ["channel": "ios-b1",
                           "device": "iPhone",
@@ -45,6 +49,7 @@ class HomeRecommendRequest: NetworkTool {
                           "includeSpecial": "true",
                           "scale": "2",
                           "version": "5.4.21"]
+        
         request(url: urlString, method: .GET, parameters: parameters) { (rootDict, error) in
             guard error == nil else { print(error as Any); return}
             guard let rootDict = rootDict else {return}
@@ -54,6 +59,7 @@ class HomeRecommendRequest: NetworkTool {
             result(groupModel!)
         }
     }
+    
     // 加载 "现场直播"
     class func loadLiveMs(_ result: @escaping (_ resultModel: HomeGroupModel)->()) {
         let urlString = kLiveUrl + "live-activity-web/v3/activity/recommend"
@@ -72,6 +78,7 @@ class HomeRecommendRequest: NetworkTool {
     }
     // 加载"听广州"
     class func loadCityAlbums(_ result: @escaping (_ resultModel: HomeGroupModel)->()) {
+        
         let urlString = kBaseUrl + "mobile/discovery/v2/recommend/hotAndGuess"
         let parameters = ["code": "43_440000_4401",
                           "device": "iPhone",
@@ -87,6 +94,7 @@ class HomeRecommendRequest: NetworkTool {
     }
     // 加载"精品听单"
     class func loadSpecialAlbums(_ result:@escaping(_ resultModel: HomeGroupModel)->()) {
+        
         let urlString = kBaseUrl + "mobile/discovery/v4/recommends"
         let parameters = ["channel": "ios-b1",
                           "device": "iPhone",
@@ -106,6 +114,7 @@ class HomeRecommendRequest: NetworkTool {
     }
     // 加载 "推广"
     class func loadSpreadAD(_ result:@escaping (_ resultModel: HomeGroupModel?)->()) {
+        
         let urlString = kAdUrl + "/ting/feed"
         let param = ["appid": "0",
                      "device": "iPhone",
@@ -128,6 +137,7 @@ class HomeRecommendRequest: NetworkTool {
     }
     // 加载 "热门推荐"
     class func loadHotRecommondAlbums(_ result:@escaping (_ groupModels:[HomeGroupModel])->()) {
+        
         let urlString = kBaseUrl + "mobile/discovery/v2/recommend/hotAndGuess"
         let param = ["code": "43_440000_4401",
                      "device": "iPhone",

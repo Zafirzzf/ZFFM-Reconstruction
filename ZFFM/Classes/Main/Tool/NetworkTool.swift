@@ -9,8 +9,8 @@
 import Foundation
 import Alamofire
 enum requestMethod : Int{
-    case GET = 0
-    case POST = 1
+    case GET
+    case POST
 }
 
 typealias NetworkCompletion = (_ responseJSON: [String: AnyObject]?, _ error: Error?) ->()
@@ -22,10 +22,9 @@ class NetworkTool {
     }
 
     class func request(url: String, method: requestMethod , parameters:[String: Any]?, headers:HTTPHeaders = [:] ,completion:  @escaping NetworkCompletion){
-        let getOrPost = method.rawValue
         
         /// 需要重构 请求的回调. 不再用 completion(包含两个可为nil对象)
-        Alamofire.request(url, method: getOrPost == 0 ? .get : .post, parameters: parameters, headers: headers).responseJSON { responseJSON in
+        Alamofire.request(url, method: method == .GET ? .get : .post, parameters: parameters, headers: headers).responseJSON { responseJSON in
             let result = responseJSON.result
             // result 枚举中有 存JSON的result.value 和 成功与否的error/isSuccess
             

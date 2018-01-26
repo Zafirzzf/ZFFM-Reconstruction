@@ -46,7 +46,6 @@
 		181830071F0A177C002C7F05 /* HomeMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181830061F0A177C002C7F05 /* HomeMenuModel.swift */; };
 		1818300F1F0B28C8002C7F05 /* HomeGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818300E1F0B28C8002C7F05 /* HomeGroupModel.swift */; };
 		181830111F0B369A002C7F05 /* HomeItemCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181830101F0B369A002C7F05 /* HomeItemCellModel.swift */; };
-		181830131F0B3CCE002C7F05 /* HomeGroupVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181830121F0B3CCE002C7F05 /* HomeGroupVM.swift */; };
 		181830151F0B3D03002C7F05 /* HomeGroupListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181830141F0B3D03002C7F05 /* HomeGroupListVM.swift */; };
 		181830181F0BA262002C7F05 /* HomeRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181830161F0BA262002C7F05 /* HomeRecommendCell.swift */; };
 		181830191F0BA262002C7F05 /* HomeRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181830171F0BA262002C7F05 /* HomeRecommendCell.xib */; };
@@ -240,7 +239,6 @@
 		181830061F0A177C002C7F05 /* HomeMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMenuModel.swift; sourceTree = "<group>"; };
 		1818300E1F0B28C8002C7F05 /* HomeGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeGroupModel.swift; sourceTree = "<group>"; };
 		181830101F0B369A002C7F05 /* HomeItemCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeItemCellModel.swift; sourceTree = "<group>"; };
-		181830121F0B3CCE002C7F05 /* HomeGroupVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeGroupVM.swift; sourceTree = "<group>"; };
 		181830141F0B3D03002C7F05 /* HomeGroupListVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeGroupListVM.swift; sourceTree = "<group>"; };
 		181830161F0BA262002C7F05 /* HomeRecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRecommendCell.swift; sourceTree = "<group>"; };
 		181830171F0BA262002C7F05 /* HomeRecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeRecommendCell.xib; sourceTree = "<group>"; };
@@ -575,7 +573,6 @@
 			children = (
 				181830001F09CBE8002C7F05 /* HomeAdvertiseVM.swift */,
 				181830141F0B3D03002C7F05 /* HomeGroupListVM.swift */,
-				181830121F0B3CCE002C7F05 /* HomeGroupVM.swift */,
 			);
 			path = VIewModel;
 			sourceTree = "<group>";
@@ -1444,7 +1441,6 @@
 				180E81231FD7CEF800877F97 /* MineMessageController.swift in Sources */,
 				181E10DB1FA84BA00047346F /* ZFPlayerVM.swift in Sources */,
 				1891DEE71F46CD2F0093DABC /* AlbumDetail.swift in Sources */,
-				181830131F0B3CCE002C7F05 /* HomeGroupVM.swift in Sources */,
 				1891DED91F46BD2F0093DABC /* Tracks.swift in Sources */,
 				18215C541FDF7BBB004E77D0 /* AudioShowVolumeView.swift in Sources */,
 				1891DEE51F46CC110093DABC /* OtherRecommand.swift in Sources */,

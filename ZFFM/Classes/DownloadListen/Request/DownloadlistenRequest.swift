@@ -13,6 +13,7 @@ class DownloadListenRequest: NetworkTool {
     
     // 加载节目分类所有标题
     class func getTodayFireShareAndCategoryData(_ completion: @escaping (_ shareModel: ListenShareModel?, _ categorys: [ListenCategoryModel]) -> ()) {
+        
         let url = kBaseUrl + "mobile/discovery/v2/rankingList/track"
         let param = ["device" : "iPhone",
                      "key" : "ranking:track:scoreByTime:1:0",
@@ -34,6 +35,7 @@ class DownloadListenRequest: NetworkTool {
     }
     // 加载某一分类下的声音列表
     class func getVoiceMsWithKey(_ key: String, _ pageNum: Int, _ completion: @escaping (_ voiceMs: [DownloadVoiceModel]) -> ()) {
+        
         let url = kBaseUrl + "mobile/discovery/v2/rankingList/track"
         let param = ["device" : "iPhone",
                      "key": key,
@@ -49,6 +51,7 @@ class DownloadListenRequest: NetworkTool {
     
     // 获取某一条声音的下载信息
     class func setDownloadMessageToVoiceM(_ model: DownloadVoiceModel, _ complete: @escaping ()->()) {
+        
         let url = "http://mobile.ximalaya.com/mobile/download/" + model.uid + "/track/" + model.trackId
         request(url: url, method: .POST, parameters: nil) { (resultDict, error) in
 
