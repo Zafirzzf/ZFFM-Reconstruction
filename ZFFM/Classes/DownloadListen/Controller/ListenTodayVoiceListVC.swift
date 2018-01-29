@@ -11,8 +11,8 @@ fileprivate let cellID = "cellID"
 class ListenTodayVoiceListVC: BaseViewController {
 
     var loadKey: String!
-    var voiceMs: [DownloadVoiceModel] = []
-    
+   
+    var voiceVM = ListenVoiceVM()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -31,8 +31,7 @@ class ListenTodayVoiceListVC: BaseViewController {
 //MARK:- 加载数据
 extension ListenTodayVoiceListVC {
     fileprivate func loadData() {
-        DownloadListenRequest.getVoiceMsWithKey(loadKey, 1) { (voiceMs) in
-            self.voiceMs = voiceMs
+        voiceVM.loadData(loadKey, 1) {
             self.tableView.reloadData()
         }
     }
@@ -52,13 +51,15 @@ extension ListenTodayVoiceListVC {
 //MARK:- tableView代理
 extension ListenTodayVoiceListVC {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return voiceMs.count
+        
+        return voiceVM.voiceMs.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = ListenTodayVoiceCell.cellWithTableView(tableView)
-        let voiceModel = voiceMs[indexPath.row]
+        let voiceModel = voiceVM.voiceMs[indexPath.row]
         voiceModel.sortNum = indexPath.row + 1
-        ListenVoiceVM.setModelToCell(model: voiceModel, cell: cell)
+        voiceVM.setModelToCell(index: indexPath.row, cell: cell)
 
         return cell
         

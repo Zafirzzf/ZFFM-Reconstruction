@@ -144,7 +144,7 @@ class HomeRecommendRequest: NetworkTool {
                      "version": "5.4.21"]
         request(url: urlString, method: .GET, parameters: param) { (rootDict, error) in
             guard let rootDict = rootDict else {return}
-            let groupMs = HomeGroupModel.mj_objectArray(withKeyValuesArray: rootDict["hotRecommends"]?["list"] as Any) as! [HomeGroupModel]
+            let groupMs = HomeGroupModel.mj_objectArray(withKeyValuesArray: (rootDict["hotRecommends"] as?[String: AnyObject])?["list"]) as! [HomeGroupModel]
             for (i,groupModel) in groupMs.enumerated() {
                 groupModel.sortID = 10 + i
                 groupModel.cellType = .CellTypeList3

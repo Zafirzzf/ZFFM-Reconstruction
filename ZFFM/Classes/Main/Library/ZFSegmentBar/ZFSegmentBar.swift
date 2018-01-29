@@ -13,14 +13,14 @@ protocol ZFSegmentBarDelegate {
 
 class ZFSegmentBar: UIView {
 
-    @objc var titles: [String] = []
-    @objc var titleFont: CGFloat = 14 {
+    var titles: [String] = []
+    var titleFont: CGFloat = 14 {
         didSet {
            _ = buttons.map{$0.titleLabel?.font = UIFont.systemFont(ofSize: titleFont)}
         }
     }
     
-    @objc var subjectColor = UIColor.orange {
+    var subjectColor = UIColor.orange {
         didSet {
             _ = buttons.map({ (button) -> ZFSegmentBtn in
                 button.setTitleColor(subjectColor, for: .selected)
@@ -29,15 +29,15 @@ class ZFSegmentBar: UIView {
             })
         }
     }
-    @objc var normalColor = UIColor.black {
+    var normalColor = UIColor.black {
         didSet {
             _ = buttons.map {$0.setTitleColor(normalColor, for: .normal)}
         }
     }
-    @objc var buttons: [ZFSegmentBtn] = []
+    var buttons: [ZFSegmentBtn] = []
     var delegate: ZFSegmentBarDelegate!
     
-    @objc var selectIndex = 0 {
+    var selectIndex = 0 {
         didSet {
             buttons[oldValue].isSelected = false
             buttons[selectIndex].isSelected = true

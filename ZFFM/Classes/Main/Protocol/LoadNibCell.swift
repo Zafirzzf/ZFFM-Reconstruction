@@ -23,3 +23,4 @@ extension LoadNibCell where Self: UITableViewCell {
     }
     
 }
+

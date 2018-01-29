@@ -8,20 +8,57 @@
 
 import Foundation
 import Alamofire
-enum requestMethod : Int{
+enum RequestMethod : Int{
     case GET
     case POST
 }
+enum RequestError: Error {
+    case serviceLost
+    case timeout
+    case emptyData
+}
+struct Resource<A> {
+    let requestUrl: String
+    let requestParam: [String: Any]
+    let method: RequestMethod = .GET
+    let headers: HTTPHeaders = [:]
+    let parase: (Any) -> A?
+//    func requestData(_ callBack: @escaping (A?) -> ()) {
+//
+//        NetworkTool.request(resource: self) { (result) in
+//            guard let value = result.value as? [String : AnyObject] else {
+//                print(result.error)
+//            }
+//            callBack(jsonArr(self.parase))
+//        }
+//
+//    }
+//    func jsonArr<A>(_ transform: @escaping (Any) -> (A?)) -> (Any) -> [A]? {
+//
+//        return { array in
+//            guard let array = array as? [Any] else {return nil}
+//            return array.flatMap(transform)
+//        }
+//    }
+}
 
-typealias NetworkCompletion = (_ responseJSON: [String: AnyObject]?, _ error: Error?) ->()
+typealias NetworkCompletion = (_ rootDict: [String:AnyObject]?, _ error: Error?) -> ()
 // 从请求到的根字典取到想要的数组
 class NetworkTool {
     
     private init(){
         
     }
-
-    class func request(url: String, method: requestMethod , parameters:[String: Any]?, headers:HTTPHeaders = [:] ,completion:  @escaping NetworkCompletion){
+//
+    class func request<A>(resource: Resource<A>, _ callBack: @escaping (Result<Any>) -> ()) {
+        Alamofire.request(resource.requestUrl, method: resource.method == .GET ? .get : .post, parameters: resource.requestParam, headers: resource.headers).responseJSON { (responseJSON) in
+            let result = responseJSON.result
+            callBack(result)
+        }
+    }
+    
+    
+    class func request(url: String, method: RequestMethod , parameters:[String: Any]?, headers:HTTPHeaders = [:] ,completion:  @escaping NetworkCompletion){
         
         /// 需要重构 请求的回调. 不再用 completion(包含两个可为nil对象)
         Alamofire.request(url, method: method == .GET ? .get : .post, parameters: parameters, headers: headers).responseJSON { responseJSON in
@@ -29,6 +66,7 @@ class NetworkTool {
             // result 枚举中有 存JSON的result.value 和 成功与否的error/isSuccess
             
             guard let resultDict = result.value else {
+                
                 completion(nil, result.error)
                 return
             }
@@ -36,15 +74,6 @@ class NetworkTool {
         }
 
     }
-}
-enum RequestError: Error {
-    case serviceLost
-    case timeout
-    case emptyData
-}
-enum Result<A, RequestError> {
-    case failture(RequestError)
-    case success(A)
 }
 
 

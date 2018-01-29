@@ -7,8 +7,8 @@
 //
 
 import UIKit
-class DownloadedAlbumVM: NSObject {
-    @objc class func setModelToCell(_ model : DownloadAlbumModel, _ cell: DownloadedAlbumCell) {
+class DownloadedAlbumVM {
+     class func setModelToCell(_ model : DownloadAlbumModel, _ cell: DownloadedAlbumCell) {
         cell.albumImageView.zf_setImage(with: model.coverSmall)
         cell.albumTitleLabel.text = model.albumTitle
         cell.albumPartsBtn.setTitle("1", for: .normal)

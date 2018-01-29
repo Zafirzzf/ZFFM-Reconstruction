@@ -14,10 +14,10 @@ class DownloadDataTool {
     
     // 获取下载列表
     static func getCurrentDownloadingVoices() -> [DownloadVoiceModel] {
+        
         let realm = try!Realm()
         let voices = realm.objects(DownloadVoiceModel.self)
         var models = [DownloadVoiceModel]()
-        
         for voice in voices {
             if !voice.isDownLoaded {
                  models.append(voice)

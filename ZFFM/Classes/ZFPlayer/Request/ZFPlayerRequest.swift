@@ -11,6 +11,7 @@ import UIKit
 class ZFPlayerRequest: NetworkTool {
 
     
+    
     class func getPlayerData(_ albumId: String, _ trackId: String, _ completion: @escaping NetworkCompletion) {
         let url = kBaseUrl + "v1/track/ca/playpage/" + trackId
         let param = ["albumId" : albumId,

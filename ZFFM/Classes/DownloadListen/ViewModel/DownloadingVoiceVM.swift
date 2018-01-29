@@ -8,8 +8,8 @@
 
 import UIKit
 
-class DownloadingVoiceVM: NSObject {
-    @objc static func setModelToCell(_ model: DownloadVoiceModel, _ cell: DownloadVoiceCell) {
+class DownloadingVoiceVM {
+    static func setModelToCell(_ model: DownloadVoiceModel, _ cell: DownloadVoiceCell) {
         cell.playOrPauseBtn.kf.setBackgroundImage(with: URL(string: model.coverSmall), for: .normal)
         cell.voiceTitleLabel.text = model.title
         cell.voiceAuthorLabel.text = "by" + model.nickname

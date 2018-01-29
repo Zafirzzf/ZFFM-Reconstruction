@@ -9,9 +9,16 @@
 import UIKit
 
 class ListenVoiceVM {
+     var voiceMs: [DownloadVoiceModel] = []
     
-    class func setModelToCell(model: DownloadVoiceModel, cell: ListenTodayVoiceCell) {
+    func loadData(_ key: String, _ pageNum: Int, finished:@escaping () -> ()) {
         
+        
+    }
+    
+     func setModelToCell(index: Int, cell: ListenTodayVoiceCell) {
+        
+        let model = voiceMs[index]
         cell.sortNumLabel.text = String(model.sortNum)
         switch model.sortNum {
         case 1:
@@ -50,7 +57,7 @@ class ListenVoiceVM {
         }
 
     }
-    class func addAnimateToButton(_ button: UIButton) {
+     func addAnimateToButton(_ button: UIButton) {
         button.setImage(UIImage(named: "cell_download_loading"), for: .normal)
         let transAni = CABasicAnimation(keyPath: "transform.rotation.z")
         transAni.fromValue = 0
