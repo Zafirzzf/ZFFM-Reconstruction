@@ -9,10 +9,10 @@
 import UIKit
 class HomeAdvertiseVM: NSObject {
     
-    @objc var advertises = [HomeAdvertiseModel]()
+     var advertises = [HomeAdvertiseModel]()
     
     
-     @objc func loadAdversiseData(_ isSuccess: @escaping (_ success: Bool)->()) {
+    func loadAdversiseData(_ isSuccess: @escaping (_ success: Bool)->()) {
         HomeRecommendRequest.loadAdvertiers { (rootDict, error) in
             guard let rootDict =  rootDict else { return }
             guard let advertiseArr = rootDict["focusImages"]?["list"] as? [[String:Any]]else {return}

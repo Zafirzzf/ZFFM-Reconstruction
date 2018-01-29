@@ -21,8 +21,9 @@ class HomeGroupListVM: NSObject {
     // 小编推荐
      func loadEditorRecommond(_ completion: @escaping ()->()) {
         HomeRecommendRequest.loadEdiotrRecommend { (groupModel) in
-            groupModel.sortID = 1
-            self.groupModels.append(groupModel)
+            guard let model = groupModel else {return}
+            model.sortID = 1
+            self.groupModels.append(model)
             completion()
         }
     }

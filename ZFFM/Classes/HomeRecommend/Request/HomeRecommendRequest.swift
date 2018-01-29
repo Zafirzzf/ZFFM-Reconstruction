@@ -22,6 +22,8 @@ class HomeRecommendRequest: NetworkTool {
                           "version": "5.4.21"]
         request(url: urlString, method: .GET, parameters: parameters, completion: completion)
     }
+    
+    
     // 加载 "图文菜单"
     class func loadPicMenuList(_ result: @escaping NetworkCompletion) {
         
@@ -35,47 +37,45 @@ class HomeRecommendRequest: NetworkTool {
             }
             guard let rootDict = rootDict else{ return }
             result(rootDict, error)
-//            let resultArr = rootDict["discoveryColumns"]?["list"] as! [Any]
         }
     }
-    
     // 加载 "小编推荐"
-    class func loadEdiotrRecommend(_ result: @escaping (_ resultModel: HomeGroupModel)->()) {
-        
+    class func loadEdiotrRecommend(_ result: @escaping (_ resultModel: HomeGroupModel?)->()) {
         let urlString = kBaseUrl + "mobile/discovery/v4/recommends"
         let parameters = ["channel": "ios-b1",
-                          "device": "iPhone",
-                          "includeActivity": "true",
-                          "includeSpecial": "true",
-                          "scale": "2",
-                          "version": "5.4.21"]
-        
-        request(url: urlString, method: .GET, parameters: parameters) { (rootDict, error) in
-            guard error == nil else { print(error as Any); return}
-            guard let rootDict = rootDict else {return}
-            let resultDict = rootDict["editorRecommendAlbums"] as! [String : Any]
-            let groupModel = HomeGroupModel.mj_object(withKeyValues: resultDict)
-            groupModel?.cellType = .CellTypeList3
-            result(groupModel!)
+                         "device": "iPhone",
+                         "includeActivity": "true",
+                         "includeSpecial": "true",
+                         "scale": "2",
+                         "version": "5.4.21"]
+       let groupResource = Resource(requestUrl: urlString, requestParam: parameters) { (rootDict) -> HomeGroupModel? in
+            let rootDict = rootDict["editorRecommendAlbums"] as? [String : Any]
+            let groupmodel =  HomeGroupModel.mj_object(withKeyValues: rootDict)
+            groupmodel?.cellType = .CellTypeList3
+            return groupmodel
         }
+        groupResource.requestData(result)
     }
-    
-    // 加载 "现场直播"
-    class func loadLiveMs(_ result: @escaping (_ resultModel: HomeGroupModel)->()) {
-        let urlString = kLiveUrl + "live-activity-web/v3/activity/recommend"
-        request(url: urlString, method: .GET, parameters: nil) { (rootDict, error) in
-            guard error == nil else {
-                return
-            }
-            let liveModelArr = HomeLiveModel.mj_objectArray(withKeyValuesArray: rootDict?["data"]) as! [HomeLiveModel]
-            let groupModel = HomeGroupModel()
-            groupModel.liveMs = liveModelArr
-            groupModel.cellType = .CellTypeList1
-            groupModel.title = "现场直播"
-            groupModel.hasMore = true
-            result(groupModel)
-        }
-    }
+//    // 加载 "小编推荐"
+//    class func loadEdiotrRecommend(_ result: @escaping (_ resultModel: HomeGroupModel)->()) {
+//
+//        let urlString = kBaseUrl + "mobile/discovery/v4/recommends"
+//        let parameters = ["channel": "ios-b1",
+//                          "device": "iPhone",
+//                          "includeActivity": "true",
+//                          "includeSpecial": "true",
+//                          "scale": "2",
+//                          "version": "5.4.21"]
+//
+//        request(url: urlString, method: .GET, parameters: parameters) { (rootDict, error) in
+//            guard error == nil else { print(error as Any); return}
+//            guard let rootDict = rootDict else {return}
+//            let resultDict = rootDict["editorRecommendAlbums"] as! [String : Any]
+//            let groupModel = HomeGroupModel.mj_object(withKeyValues: resultDict)
+//            groupModel?.cellType = .CellTypeList3
+//            result(groupModel!)
+//        }
+//    }
     // 加载"听广州"
     class func loadCityAlbums(_ result: @escaping (_ resultModel: HomeGroupModel)->()) {
         
@@ -92,6 +92,7 @@ class HomeRecommendRequest: NetworkTool {
             result(groupModel!)
         }
     }
+    
     // 加载"精品听单"
     class func loadSpecialAlbums(_ result:@escaping(_ resultModel: HomeGroupModel)->()) {
         
@@ -106,12 +107,47 @@ class HomeRecommendRequest: NetworkTool {
             guard error == nil else { print(error as Any); return}
             guard let rootDict = rootDict else {return}
             let resultDict = rootDict["specialColumn"] as! [String : Any]
-          
+            
             let groupModel = HomeGroupModel.mj_object(withKeyValues: resultDict)
             groupModel?.cellType = .CellTypeList2
             result(groupModel!)
         }
     }
+    // 加载 "热门推荐"
+    class func loadHotRecommondAlbums(_ result:@escaping (_ groupModels:[HomeGroupModel])->()) {
+        
+        let urlString = kBaseUrl + "mobile/discovery/v2/recommend/hotAndGuess"
+        let param = ["code": "43_440000_4401",
+                     "device": "iPhone",
+                     "version": "5.4.21"]
+        request(url: urlString, method: .GET, parameters: param) { (rootDict, error) in
+            guard let rootDict = rootDict else {return}
+            let groupMs = HomeGroupModel.mj_objectArray(withKeyValuesArray: (rootDict["hotRecommends"] as?[String: AnyObject])?["list"]) as! [HomeGroupModel]
+            for (i,groupModel) in groupMs.enumerated() {
+                groupModel.sortID = 10 + i
+                groupModel.cellType = .CellTypeList3
+            }
+            result(groupMs)
+        }
+    }
+    // 加载 "现场直播"
+    class func loadLiveMs(_ result: @escaping (_ resultModel: HomeGroupModel)->()) {
+        
+        let urlString = kLiveUrl + "live-activity-web/v3/activity/recommend"
+        request(url: urlString, method: .GET, parameters: nil) { (rootDict, error) in
+            guard error == nil else {
+                return
+            }
+            let liveModelArr = HomeLiveModel.mj_objectArray(withKeyValuesArray: rootDict?["data"]) as! [HomeLiveModel]
+            let groupModel = HomeGroupModel()
+            groupModel.liveMs = liveModelArr
+            groupModel.cellType = .CellTypeList1
+            groupModel.title = "现场直播"
+            groupModel.hasMore = true
+            result(groupModel)
+        }
+    }
+
     // 加载 "推广"
     class func loadSpreadAD(_ result:@escaping (_ resultModel: HomeGroupModel?)->()) {
         
@@ -135,23 +171,7 @@ class HomeRecommendRequest: NetworkTool {
             result(groupModel)
         }
     }
-    // 加载 "热门推荐"
-    class func loadHotRecommondAlbums(_ result:@escaping (_ groupModels:[HomeGroupModel])->()) {
-        
-        let urlString = kBaseUrl + "mobile/discovery/v2/recommend/hotAndGuess"
-        let param = ["code": "43_440000_4401",
-                     "device": "iPhone",
-                     "version": "5.4.21"]
-        request(url: urlString, method: .GET, parameters: param) { (rootDict, error) in
-            guard let rootDict = rootDict else {return}
-            let groupMs = HomeGroupModel.mj_objectArray(withKeyValuesArray: (rootDict["hotRecommends"] as?[String: AnyObject])?["list"]) as! [HomeGroupModel]
-            for (i,groupModel) in groupMs.enumerated() {
-                groupModel.sortID = 10 + i
-                groupModel.cellType = .CellTypeList3
-            }
-            result(groupMs)
-        }
-    }
+   
 }
 
 
