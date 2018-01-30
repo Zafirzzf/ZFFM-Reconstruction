@@ -30,24 +30,27 @@ class HomeGroupListVM: NSObject {
     // 现场直播
      func loadLiveData(_ completion: @escaping ()->() ) {
         HomeRecommendRequest.loadLiveMs { (groupModel) in
-            groupModel.sortID = 2
-            self.groupModels.append(groupModel)
+            guard let model = groupModel else {return}
+            model.sortID = 2
+            self.groupModels.append(model)
             completion()
         }
     }
     // 听广州
      func loadCityAlbum(_ completion: @escaping ()->()) {
         HomeRecommendRequest.loadCityAlbums { (groupModel) in
-            groupModel.sortID = 3
-            self.groupModels.append(groupModel)
+            guard let model = groupModel else {return}
+            model.sortID = 3
+            self.groupModels.append(model)
             completion()
         }
     }
     // 精品听单
      func loadSpecialAlbum(_ completion:@escaping ()->()) {
         HomeRecommendRequest.loadSpecialAlbums { (groupModel) in
-            groupModel.sortID = 4
-            self.groupModels.append(groupModel)
+            guard let model = groupModel else {return}
+            model.sortID = 4
+            self.groupModels.append(model)
             completion()
         }
     }
@@ -63,7 +66,8 @@ class HomeGroupListVM: NSObject {
     // 精品推荐
      func loadHotRecommond(_ completion:@escaping ()->()) {
         HomeRecommendRequest.loadHotRecommondAlbums { (groupModels) in
-            self.groupModels = self.groupModels + groupModels
+            guard let model = groupModels else {return}
+            self.groupModels = self.groupModels + model
             completion()
         }
     }

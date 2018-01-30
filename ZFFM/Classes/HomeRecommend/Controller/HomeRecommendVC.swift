@@ -60,12 +60,12 @@ extension HomeRecommendVC {
         }
     }
     private func loadMenuData() {
-        HomeRecommendRequest.loadPicMenuList { (resultDict, error) in
-            let resultArr = resultDict!["discoveryColumns"]?["list"] as! [Any]
-            self.menuView.menuModels = HomeMenuModel.mj_objectArray(withKeyValuesArray: resultArr) as! [HomeMenuModel]
-            
-            self.menuView.contentSize = CGSize(width: (KMenuLeftMargin + KMenuBtnWidth) * CGFloat(resultArr.count) + KMenuLeftMargin, height: KMenuViewH)
+        HomeRecommendRequest.loadPicMenuList { (menuModels) in
+            guard let models = menuModels else {return}
+            self.menuView.menuModels = models
+            self.menuView.contentSize = CGSize(width: (KMenuLeftMargin + KMenuBtnWidth) * CGFloat(models.count) + KMenuLeftMargin, height: KMenuViewH)
         }
+
     }
     private func loadEditorRecommond() {
         groupListVM.loadEditorRecommond( {
