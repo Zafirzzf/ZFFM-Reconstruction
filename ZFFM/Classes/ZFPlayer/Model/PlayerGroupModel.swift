@@ -14,7 +14,7 @@ class PlayerGroupModel: NSObject {
     @objc var albumInfoMs = [AlbumInfoModel]()
     @objc var albumId = ""
     
-    @objc init(title: String, subTitle: String, albumId: String, albumInfoMs: [AlbumInfoModel]) {
+    init(title: String, subTitle: String, albumId: String, albumInfoMs: [AlbumInfoModel]) {
         super.init()
         self.groupTitle = title
         self.groupDetailTitle = subTitle
@@ -22,7 +22,7 @@ class PlayerGroupModel: NSObject {
         self.albumInfoMs = albumInfoMs
     }
 
-    @objc var totalCellHeight: CGFloat {
+    var totalCellHeight: CGFloat {
         return 30 * 2 + CGFloat(albumInfoMs.count) * (albumInfoMs.first ?? AlbumInfoModel()).cellHeight
     }
     

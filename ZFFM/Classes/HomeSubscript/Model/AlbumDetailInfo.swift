@@ -9,10 +9,10 @@
 import UIKit
 
 class AlbumDetailInfo: NSObject {
-    var albumId = ""
-    var intro = ""
-    var introRich = ""
-    var tags = ""
+    @objc var albumId = ""
+    @objc var intro = ""
+    @objc var introRich = ""
+    @objc var tags = ""
     override var description: String {
         return yy_modelDescription()
     }

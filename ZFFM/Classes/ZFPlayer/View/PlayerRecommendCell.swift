@@ -15,14 +15,14 @@ class PlayerRecommendCell: UITableViewCell,LoadNibCell {
     @IBOutlet weak var tableView: UITableView!
     
     
-    @objc var playerGroupM: PlayerGroupModel? {
+    var playerGroupM: PlayerGroupModel? {
         didSet {
             titleLabel.text = playerGroupM?.groupTitle
             subDescriptionLabel.setTitle(playerGroupM?.groupDetailTitle, for: .normal)
             self.tableView.reloadData()
         }
     }
-    @objc var playerCommentGroupM: PlayerCommentGroupModel? {
+    var playerCommentGroupM: PlayerCommentGroupModel? {
         didSet {
             titleLabel.text = playerCommentGroupM?.groupTitle
             subDescriptionLabel.setTitle(playerCommentGroupM?.groupDetailTitle, for: .normal)  
@@ -71,12 +71,12 @@ extension PlayerRecommendCell: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if playerGroupM != nil {
+        if playerGroupM != nil { // 相关推荐
             
             let cell = PlayerRecommendAlbumCell.cellWithTableView(tableView)
             cell.albumInfo = playerGroupM?.albumInfoMs[indexPath.row]
             return cell
-        }else {
+        }else {  // 评论列表
             let cell = PlayerRecommendCommentCell.cellWithTableView(tableView)
             cell.commentInfo = playerCommentGroupM?.commentInfoMs[indexPath.row]
             return cell

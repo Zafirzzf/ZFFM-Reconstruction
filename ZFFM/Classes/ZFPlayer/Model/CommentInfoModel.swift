@@ -9,16 +9,16 @@
 import UIKit
 
 class CommentInfoModel: NSObject {
-        var id = ""
-        var track_id = ""
-        var uid = ""
-        var nickname = ""
-        var smallHeader = ""
-        var content = ""
-        var createdAt = ""
-        var updatedAt = ""
-        var parentId = ""
-        var likes = ""
+    @objc var id = ""
+    @objc var track_id = ""
+    @objc var uid = ""
+    @objc var nickname = ""
+    @objc var smallHeader = ""
+    @objc var content = ""
+    @objc var createdAt = ""
+    @objc var updatedAt = ""
+    @objc var parentId = ""
+    @objc var likes = ""
     var oneCommentHeight: CGFloat = 60
     var contentHeight: CGFloat {
         let contentW = KSCREEN_W - 75

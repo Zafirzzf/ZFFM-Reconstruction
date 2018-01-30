@@ -12,10 +12,10 @@ class AlbumDetailController: BaseViewController,PushPlayerVC {
     
     /* UI控件 */
     fileprivate lazy var headerView: AlbumDetailHeaderView = AlbumDetailHeaderView.loadFromNib()
-    @objc open var albumId = ""
+    open var albumId = ""
     /// segement当前选择索引
-    @objc var selectedIndex = 0
-    @objc var albumVM = AlbumDetailVM()
+    var selectedIndex = 0
+    var albumVM = AlbumDetailVM()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

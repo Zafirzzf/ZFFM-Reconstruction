@@ -39,7 +39,7 @@ class ZFPlayerVM {
 
             self.recommendGroupM = groupM
             let userInfoM = PlayerUserInfoModel.mj_object(withKeyValues: resultDict["userInfo"])!
-            let commentInfoMs = CommentInfoModel.mj_objectArray(withKeyValuesArray: resultDict["commentInfo"]!["list"]) as! [CommentInfoModel]
+            let commentInfoMs = CommentInfoModel.mj_objectArray(withKeyValuesArray: (resultDict["commentInfo"] as! [String: AnyObject])["list"]) as! [CommentInfoModel]
             self.playerPanVM = ZFPlayerPaneVM(trackModel: trackInfoModel, userinfoModel: userInfoM)
             
             let commentGroupM = PlayerCommentGroupModel(title: "听众点评",
