@@ -12,7 +12,14 @@ class ListenVoiceVM {
      var voiceMs: [DownloadVoiceModel] = []
     
     func loadData(_ key: String, _ pageNum: Int, finished:@escaping () -> ()) {
-        
+        DownloadListenRequest.getVoiceMsWithKey(key, pageNum) { (rootDict, error) in
+            
+            guard let resultDict = rootDict else {return}
+            
+            let voiceMs = DownloadVoiceModel.mj_objectArray(withKeyValuesArray: resultDict["list"]) as! [DownloadVoiceModel]
+            self.voiceMs = voiceMs
+            finished()
+        }
         
     }
     
