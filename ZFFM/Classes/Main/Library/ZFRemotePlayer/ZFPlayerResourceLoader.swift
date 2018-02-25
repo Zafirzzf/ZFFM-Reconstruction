@@ -20,9 +20,7 @@ class ZFPlayerResourceLoader: NSObject, AVAssetResourceLoaderDelegate {
     }()
     fileprivate var loadingRequests = [AVAssetResourceLoadingRequest]()
     var isSeekProgress = false
-    deinit{
-        print("loader销毁了")
-    }
+  
     
     // 当外界 播放一段音频资源时候,拦截这个方法.根据请求信息,返回给外界数据
     func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
@@ -102,8 +100,9 @@ extension ZFPlayerResourceLoader {
             loadingRequest.contentInformationRequest?.contentLength = Int64(totalSize)
             loadingRequest.contentInformationRequest?.contentType = ZFPlayerFileTool.contentType(url: url)
             loadingRequest.contentInformationRequest?.isByteRangeAccessSupported = true
-            
+         
             let tempData = NSData(contentsOfFile: ZFPlayerFileTool.tempFilePath(url: url))
+            
             guard let data = tempData != nil ? tempData : try? NSData(contentsOfFile: ZFPlayerFileTool.cacheFilePath(url: url), options: NSData.ReadingOptions.mappedIfSafe) else {return}
          
             let loadedSize = downloader.loadedSize
@@ -122,7 +121,7 @@ extension ZFPlayerResourceLoader {
             if responseLength < 0 {responseLength = 0;}
             if responseOffset < 0 {responseOffset = 0;}
             
-            let subData = data.subdata(with: NSMakeRange(responseOffset, min(data.length - 2, responseLength) ))
+            let subData = data.subdata(with: NSMakeRange(responseOffset, min(data.length, responseLength) ))
             loadingRequest.dataRequest?.respond(with: subData)
             if requestOffset + canRedLength >= Int(dateRequest.requestedOffset) + requestLength {
                 loadingRequest.finishLoading()

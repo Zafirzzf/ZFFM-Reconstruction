@@ -17,6 +17,14 @@ enum RequestError: Error {
     case timeout
     case emptyData
 }
+//extension Result<Value> {
+//    static func ??<T>(result: Result<T>) -> T {
+//        
+//    }
+//}
+extension Resource {
+    
+}
 /// 请求数据所用资源
 struct Resource<Models> {
     let requestUrl: String
@@ -28,6 +36,8 @@ struct Resource<Models> {
     func requestData(_ callBack: @escaping (Models?) -> ()) {
         
         NetworkTool.request(resource: self) { (result) in
+            let a = result
+            
             guard let rootDict = result.value as? [String: AnyObject] else {// 字典无值
                 print(result.error)
                 return

@@ -69,6 +69,7 @@ extension ZFAudioRecorder {
     
     /// 删除最后一段录音
     func deleteLastRecord() {
+        guard recordersDuration.count > 0 else { return}
         recordersDuration.removeLast()
         fileTool.deletePreviousAudio(recorders)
         recorders.removeLast()

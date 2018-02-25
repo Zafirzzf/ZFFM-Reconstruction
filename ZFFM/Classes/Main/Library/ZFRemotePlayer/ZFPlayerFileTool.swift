@@ -65,7 +65,15 @@ class ZFPlayerFileTool {
         let fileExtension = path.pathExtension
         let contentTypeCF = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, fileExtension as CFString, nil)
         return CFBridgingRetain(contentTypeCF) as? String ?? "mp3"
-
-        
+    }
+    static func createTempFile(url: URL) {
+        let manager = FileManager.default
+        let path = tempFilePath(url: url)
+        manager.createFile(atPath: path, contents: nil, attributes: nil)
+    }
+    static func readTempFileData(urlStr: String, with offset: Int, length: Int) -> Data? {
+        let filehandle = FileHandle(forReadingAtPath: urlStr)
+        filehandle?.seek(toFileOffset: UInt64(offset))
+        return filehandle?.readData(ofLength: length)
     }
 }

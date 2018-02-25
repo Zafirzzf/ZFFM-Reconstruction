@@ -35,6 +35,7 @@ class DownloadVoiceModel: Object {
     @objc dynamic var isDownLoaded = false
     
     @objc dynamic var downloadProgress: Float {
+        print(ZFFileTool.downloadingFileSize(downloadUrl))
         return ZFFileTool.downloadingFileSize(downloadUrl) / downloadSize
     }
     // 是否正在下载

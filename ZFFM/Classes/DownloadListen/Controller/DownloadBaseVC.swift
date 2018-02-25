@@ -32,7 +32,7 @@ class DownloadBaseVC: UITableViewController {
         loadData()
     }
     @objc dynamic func loadData() {
-//        dataState = .loadingData
+        tableView.reloadData()
     }
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -47,9 +47,9 @@ extension DownloadBaseVC: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
         case .emptyData:
             return UIImage(named: "noData_downloading")!
         case .loadingData:
-            return #imageLiteral(resourceName: "loading.png")
+            return #imageLiteral(resourceName: "placeholder")
         case .abnormal:
-            return #imageLiteral(resourceName: "loading.png")
+            return #imageLiteral(resourceName: "placeholder")
 
         }
     }

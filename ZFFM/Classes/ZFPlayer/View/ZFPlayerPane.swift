@@ -83,8 +83,7 @@ extension ZFPlayerPane {
             progressSlider.value = Float(player.progress)
         }
         
-        playBtn.isSelected = player.state == .playing
-        
+        playBtn.isSelected = player.state.rawValue == 2
         rateViewHideSec -= 1 // 刷新面板状态
         if rateViewHideSec == 0 {
             UIView.animate(withDuration: 0.6, animations: {

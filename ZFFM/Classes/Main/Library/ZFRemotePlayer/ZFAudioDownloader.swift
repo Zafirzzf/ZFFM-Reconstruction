@@ -17,7 +17,8 @@ class ZFAudioDownloader:NSObject, URLSessionDataDelegate {
     
     fileprivate var dataTask: URLSessionTask?
     // 保存数据的输出流
-    fileprivate lazy var outputStream: OutputStream = OutputStream()
+//    fileprivate lazy var outputStream: OutputStream = OutputStream()
+    fileprivate lazy var filehandle: FileHandle = FileHandle()
     fileprivate var url: URL?
     
     var totalSize = 0
@@ -64,8 +65,10 @@ extension ZFAudioDownloader {
     // 第一次接收到响应投的时候  response
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         
-        outputStream = OutputStream(toFileAtPath: ZFPlayerFileTool.tempFilePath(url: response.url!), append: true)!
-        outputStream.open()
+//        outputStream = OutputStream(toFileAtPath: ZFPlayerFileTool.tempFilePath(url: response.url!), append: true)!
+//        outputStream.open()
+        ZFPlayerFileTool.createTempFile(url: response.url!)
+        filehandle = FileHandle(forUpdatingAtPath: ZFPlayerFileTool.tempFilePath(url: response.url!))!
         completionHandler(.allow)
         
         // 获取文件总大小
@@ -81,11 +84,14 @@ extension ZFAudioDownloader {
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         
         loadedSize += data.count
-        let byes = data.withUnsafeBytes { (byes) -> UnsafePointer<UInt8> in
-            return byes
-        }
-    
-        outputStream.write(byes, maxLength: data.count)
+//        let byes = data.withUnsafeBytes { (byes) -> UnsafePointer<UInt8> in
+//            return byes
+//        }
+//
+//        outputStream.write(byes, maxLength: data.count)
+        
+        filehandle.seekToEndOfFile()
+        filehandle.write(data)
         print("下载中")
         downloadingBlock?()
     }

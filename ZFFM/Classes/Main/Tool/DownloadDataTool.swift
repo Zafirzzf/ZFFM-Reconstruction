@@ -92,7 +92,7 @@ class DownloadDataTool {
         ZFDownloadManager.shareInstance.startDownload(url, nil, { (state) in
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: KDownloadStateChange), object: nil, userInfo: ["state": state])
         }, { (progress) in
-            print(progress)
+//            print(progress)
         }, { (success) in
             setVoiceDownloadedSuccess(url.absoluteString)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: KDownloadListChange),  object: nil)

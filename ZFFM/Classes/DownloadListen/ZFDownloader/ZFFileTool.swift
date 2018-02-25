@@ -8,7 +8,12 @@
 
 import UIKit
 class ZFFileTool {
-    
+    class func createTmpFilePath(_ path: String) {
+        let manager = FileManager.default
+        if !manager.fileExists(atPath: path) {
+            manager.createFile(atPath: path, contents: nil, attributes: nil)
+        }
+    }
     class func fileIsExist(_ atPath: String) -> Bool {
         return FileManager.default.fileExists(atPath: atPath, isDirectory: nil)
     }

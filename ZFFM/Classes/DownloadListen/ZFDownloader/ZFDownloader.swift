@@ -26,11 +26,11 @@ typealias FailedBlock = (_ error: Error) -> ()
 class ZFDownloader: NSObject {
     
     // 外界注册的闭包
-    @objc var downloadInfo: DownloadInfo?
+    var downloadInfo: DownloadInfo?
     var stateChange: StateChangeBlock?
-    @objc var progressChange: ProgressChangeBlock?
-    @objc var successDownload: SuccessBlock?
-    @objc var faildDownload: FailedBlock?
+    var progressChange: ProgressChangeBlock?
+    var successDownload: SuccessBlock?
+    var faildDownload: FailedBlock?
     // 请求用的URLSession
     fileprivate lazy var session: URLSession = {
         URLSession.init(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
@@ -41,7 +41,7 @@ class ZFDownloader: NSObject {
     }()
     // 保存数据的输出流
     fileprivate lazy var outputStream: OutputStream = OutputStream()
-
+    fileprivate lazy var handle: FileHandle = FileHandle()
     
     //当前下载状态
     fileprivate(set) var state: ZFDownloadState = .pause {
@@ -204,8 +204,10 @@ extension ZFDownloader: URLSessionDataDelegate {
             state = .downloading
             if tempSize < contentLength {
                 // 每次outputStream close之后都要重新创建一个
-                outputStream = OutputStream(toFileAtPath: self.downloadingPath, append: true)!
-                outputStream.open()
+                ZFFileTool.createTmpFilePath(self.downloadingPath)
+                handle = FileHandle(forWritingAtPath: self.downloadingPath)!
+//                outputStream = OutputStream(toFileAtPath: self.downloadingPath, append: true)!
+//                outputStream.open()
                 completionHandler(.allow)
              
             }
@@ -214,12 +216,14 @@ extension ZFDownloader: URLSessionDataDelegate {
     // 当用户确定, 继续接受数据的时候调用
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         tempSize += data.count
+        handle.seekToEndOfFile()
+        handle.write(data)
         progress = CGFloat(tempSize) * 1.0 / (CGFloat(totalSize) *  1.0)
-        
-        let byes = data.withUnsafeBytes { (byes) -> UnsafePointer<UInt8> in
-            return byes
-        }
-        outputStream.write(byes, maxLength: data.count)
+
+//        let byes = data.withUnsafeBytes { (byes) -> UnsafePointer<UInt8> in
+//            return byes
+//        }
+//        outputStream.write(byes, maxLength: data.count)
     }
     
     // 请求完成时调用 成功/失败
@@ -243,7 +247,7 @@ extension ZFDownloader: URLSessionDataDelegate {
             faildDownload?(error!)
 
         }
-        outputStream.close()
+//        outputStream.close()
     }
 }
 

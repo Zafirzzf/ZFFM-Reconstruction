@@ -9,6 +9,15 @@
 import UIKit
 
 class DownloadingVoiceVM {
+    static func updateCell(_ model: DownloadVoiceModel, _ cell: DownloadVoiceCell) {
+        cell.filesizeLabel.text = String(describing: model.fileFormateSize)
+        cell.downloadProgressV.progress = Float(model.downloadProgress)
+//        print(model.downloadProgress)
+        cell.downloadProgressLabel.text = String(describing: model.downLoadFromateSize) + "/" + model.fileFormateSize
+        cell.progressBackView.isHidden = model.isDownLoaded
+        cell.playOrPauseBtn.kf.setBackgroundImage(with: URL(string: model.coverSmall), for: .normal)
+        
+    }
     static func setModelToCell(_ model: DownloadVoiceModel, _ cell: DownloadVoiceCell) {
         cell.playOrPauseBtn.kf.setBackgroundImage(with: URL(string: model.coverSmall), for: .normal)
         cell.voiceTitleLabel.text = model.title

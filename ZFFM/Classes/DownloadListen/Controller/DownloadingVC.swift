@@ -8,7 +8,7 @@
 
 import UIKit
 class DownloadingVC: DownloadBaseVC {
-
+    
     fileprivate var dataSource = [DownloadVoiceModel]() {
         didSet {
             if dataSource.count == 0 {
@@ -19,19 +19,21 @@ class DownloadingVC: DownloadBaseVC {
     fileprivate var timer = Timer()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
         loadData()
-   
+        
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateCell), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer, forMode: .commonModes)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
     }
-
-
-
+    
+    
+    
 }
 
 //MARK:- 加载数据
@@ -40,7 +42,7 @@ extension DownloadingVC {
         self.dataSource = DownloadDataTool.getCurrentDownloadingVoices()
         tableView.reloadData()
     }
-
+    
 }
 
 //MARK:- 事件响应
@@ -49,7 +51,9 @@ extension DownloadingVC {
         let cells = tableView.visibleCells
         for (i,cell) in cells.enumerated() {
             let downloadModel = dataSource[i]
-            DownloadingVoiceVM.setModelToCell(downloadModel, cell as! DownloadVoiceCell)
+            DownloadingVoiceVM.updateCell(downloadModel, cell as! DownloadVoiceCell)
+//            DownloadingVoiceVM.setModelToCell(downloadModel, cell as! DownloadVoiceCell)
+            tableView.reloadData()
         }
     }
 }
@@ -57,7 +61,7 @@ extension DownloadingVC {
 //MARK:- 设置界面
 extension DownloadingVC {
     fileprivate func setupUI() {
- 
+        
         tableView.rowHeight = 90
         
     }
